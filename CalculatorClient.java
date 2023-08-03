@@ -13,11 +13,16 @@ public class CalculatorClient {
         try {
             Calculator calc = (Calculator) Naming.lookup(String.format("//%s/Calculator", host_Address));
 
-            int res = calc.pop();
+            System.out.println("Starting to add elements");
+            calc.pushValue(6);
+            calc.pushValue(4);
+            calc.pushValue(18);
+            calc.pushValue(21);
 
-            if (res == 4) {
-                System.out.println("Success! The Answer is 4");
-            }
+            System.out.println(calc.delayPop(5000));
+
+            System.out.println("Pushing operations");
+            calc.pushOperation("gcd");
         } catch (Exception error) {
             System.out.println(error);
         }
