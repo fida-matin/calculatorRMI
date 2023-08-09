@@ -256,29 +256,60 @@ public class CalculatorClient {
                 Calculator client1 = (Calculator) Naming.lookup(String.format("//%s/Calculator", host_Address));
                 Calculator client2 = (Calculator) Naming.lookup(String.format("//%s/Calculator", host_Address));
 
+                System.out.println("Adding - 2");
                 client1.pushValue(2);
+                System.out.println("Adding - 3");
                 client2.pushValue(3);
-                client2.delayPop(2000);
-                client1.pushValue(4);
-                client2.delayPop(2000);
-                client2.delayPop(2000);
-                client2.pushValue(5);
-                client2.delayPop(2000);
-                client1.delayPop(2000);
-                client1.pushValue(6);
-                client2.pushValue(7);
-                client1.pushValue(8);
-                client2.pushValue(9);
-                client1.pushValue(10);
-                client2.pushValue(11);
-                client2.delayPop(2000);
-                client2.delayPop(2000);
-                client2.delayPop(2000);
-                client2.delayPop(2000);
-                client2.delayPop(2000);
 
-                assert client1.isEmpty() == true;
-                System.out.println();
+                System.out.println("Removing:");
+                System.out.println(client1.delayPop(2000));
+
+                System.out.println("Adding - 4");
+                client1.pushValue(4);
+
+                System.out.println("Removing:");
+                System.out.println(client2.delayPop(2000));
+                System.out.println("Removing:");
+                System.out.println(client1.delayPop(2000));
+
+                System.out.println("Adding - 5");
+                client2.pushValue(5);
+
+                System.out.println("Removing:");
+                System.out.println(client2.delayPop(2000));
+                System.out.println("Removing:");
+                System.out.println(client1.delayPop(2000));
+
+                System.out.println("Adding - 6");
+                client1.pushValue(6);
+                System.out.println("Adding - 7");
+                client2.pushValue(7);
+                System.out.println("Adding - 8");
+                client1.pushValue(8);
+                System.out.println("Adding - 9");
+                client2.pushValue(9);
+                System.out.println("Adding - 10");
+                client1.pushValue(10);
+                System.out.println("Adding - 11");
+                client2.pushValue(11);
+
+                System.out.println("Removing:");
+                System.out.println(client2.delayPop(2000));
+                System.out.println("Removing:");
+                System.out.println(client2.delayPop(2000));
+                System.out.println("Removing:");
+                System.out.println(client2.delayPop(2000));
+                System.out.println("Removing:");
+                System.out.println(client2.delayPop(2000));
+                System.out.println("Removing:");
+                System.out.println(client2.delayPop(2000));
+
+                if (client1.isEmpty() == true) {
+                    System.out.println("Final Input was removed");
+                    System.out.println("Test Passed");
+                } else {
+                    System.out.println("Finished running, still some values left in stack");
+                }
             }
 
         } catch (Exception error) {
