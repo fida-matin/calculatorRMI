@@ -20,7 +20,7 @@ default: classes
 
 classes: $(CLASSES:.java=.class)
 
-setup: CalculatorServer.java
+setup: 			CalculatorServer.java
 	@echo " "
 	@echo "KILLING PROCESS FOR RMI:"
 	@echo "To close rmi use 'ps' to get process id and use 'kill -9 PID' to remove process"
@@ -29,8 +29,8 @@ setup: CalculatorServer.java
 	sleep 2
 	java CalculatorServer
 
-integration: CalculatorClient.java
-	java CalculatorClient
+integration: 	CalculatorClient.java
+	java -ea CalculatorClient
 
 unit:			UnitTesting.java
 	java -ea UnitTesting
