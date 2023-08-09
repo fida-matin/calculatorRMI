@@ -20,16 +20,19 @@ default: classes
 
 classes: $(CLASSES:.java=.class)
 
-rmi:
+setup: CalculatorServer.java
+	@echo " "
+	@echo "KILLING PROCESS FOR RMI:"
+	@echo "To close rmi use 'ps' to get process id and use 'kill -9 PID' to remove process"
+	@echo " "
 	rmiregistry &
-
-server:	CalculatorServer.java
+	sleep 2
 	java CalculatorServer
 
-client:	CalculatorClient.java
+integration: CalculatorClient.java
 	java CalculatorClient
 
-unit:	UnitTesting.java
+unit:			UnitTesting.java
 	java -ea UnitTesting
 
 clean: 
@@ -43,10 +46,11 @@ instructions:
 	@echo "Makefile for Java RMI Implementation for a Calculator Tool"
 	@echo " "
 	@echo "Make Commands: "
-	@echo "'rmi' - starts the registry, only needs to be done once on each machine "
+	@echo "'setup' - starts the registry & server, only needs to be done once on seperate terminal"
 	@echo " to close rmi use 'ps' to get process id and use 'kill -9 PID' to remove process"
-	@echo "'server' - executes server "
-	@echo "'client' - executes client "
+	@echo "'integration' - executes client for integration testing "
+	@echo "'unit' - executes unit testing for CalculatorImplementation"
+	@echo "'clean' - Removes all class files"
 	@echo " "
 
 
