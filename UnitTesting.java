@@ -8,12 +8,12 @@ import java.lang.Math;
 public class UnitTesting {
     public static void main(String args[]) {
         CalculatorImplementation test = new CalculatorImplementation();
-
+        System.out.println("UNIT TESTING");
         /**
          * TEST 1 - pushValue() & pop() test
          */
         System.out.println("\nTest 1 - Adding + Removing Values to Stack:");
-        System.out.println("Adding Values 2,3,4,5,6");
+        System.out.println("Adding Values...");
         test.pushValue(2);
         test.pushValue(3);
         test.pushValue(4);
@@ -21,16 +21,12 @@ public class UnitTesting {
         test.pushValue(6);
 
         assert test.pop() == 6;
-        System.out.println("Found 6");
         assert test.pop() == 5;
-        System.out.println("Found 5");
         assert test.pop() == 4;
-        System.out.println("Found 4");
         assert test.pop() == 3;
-        System.out.println("Found 3");
         assert test.pop() == 2;
-        System.out.println("Found 2\n");
-        System.out.println("Test 1 - Pass\n");
+        System.out.println("Found All Values\n");
+        System.out.println("Test 1 - PASS\n");
 
         /**
          * TEST 2 isEmpty() test
@@ -39,12 +35,12 @@ public class UnitTesting {
         System.out.println("Adding Value to Stack");
         test.pushValue(1);
         assert test.isEmpty() == false;
-        System.out.println("Returns false for isEmpty");
+        System.out.println("Returned false for isEmpty");
         test.pop();
         System.out.println("Remove all values from Stack");
         assert test.isEmpty() == true;
-        System.out.println("Returns true for isEmpty\n");
-        System.out.println("Test 2 - Pass\n");
+        System.out.println("Returned true for isEmpty\n");
+        System.out.println("Test 2 - PASS\n");
 
         /**
          * TEST 3 pushOperation() test
@@ -63,7 +59,7 @@ public class UnitTesting {
         assert test.pop() == 15;
         assert test.isEmpty() == true;
         System.out.println("Returned 15 and Stack was cleared");
-        System.out.println("Test 3.1 - Pass");
+        System.out.println("Test 3.1 - PASS");
 
         // TEST 3.2 max input test
         System.out.println("\nTest 3.2 - Testing max");
@@ -77,7 +73,7 @@ public class UnitTesting {
         assert test.pop() == 61;
         assert test.isEmpty() == true;
         System.out.println("Returned 61 and Stack was cleared");
-        System.out.println("Test 3.2 - Pass");
+        System.out.println("Test 3.2 - PASS");
 
         // TEST 3.3 lcm input test
         System.out.println("\nTest 3.3 - Testing Lowest Common Multiple");
@@ -91,7 +87,7 @@ public class UnitTesting {
         assert test.pop() == 31110;
         assert test.isEmpty() == true;
         System.out.println("Returned 31110 and Stack was cleared");
-        System.out.println("Test 3.3 - Pass");
+        System.out.println("Test 3.3 - PASS");
 
         // TEST 3.4
         System.out.println("\nTest 3.4 - Testing Greatest Common Divisor");
@@ -105,9 +101,9 @@ public class UnitTesting {
         assert test.pop() == 6;
         assert test.isEmpty() == true;
         System.out.println("Returned 6 and Stack was cleared");
-        System.out.println("Test 3.4 - Pass");
+        System.out.println("Test 3.4 - PASS");
 
-        System.out.println("\nTest 3 - Pass\n");
+        System.out.println("\nTest 3 - PASS\n");
 
         /**
          * TEST 4 delayPop() test
@@ -122,7 +118,7 @@ public class UnitTesting {
         double diff = System.currentTimeMillis() - start;
         assert (Math.abs(diff - delay)) <= error;
         System.out.println("Delay is within acceptable error\n");
-        System.out.println("Test 4 - Pass\n");
+        System.out.println("Test 4 - PASS\n");
 
         System.out.println("\nAll Unit Tests Passed!\n");
 

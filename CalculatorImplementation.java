@@ -3,6 +3,7 @@
 // University of Adelaide
 // 06 Aug 2023
 import java.util.ArrayList;
+import java.util.Arrays;
 
 // Implementation File
 public class CalculatorImplementation implements Calculator {
@@ -115,12 +116,14 @@ public class CalculatorImplementation implements Calculator {
     // use the currentTimeMillis() function to compare time difference
     public int delayPop(int millis) {
 
-        int val = stack.get(0);
         long start = System.currentTimeMillis();
         // run while loop until the time constraint is met
         while (millis != System.currentTimeMillis() - start) {
         }
+        System.out.println(Arrays.toString(stack.toArray()));
         // remove and return value
+        int val = stack.get(0);
+        System.out.println(val);
         stack.remove(0);
         return val;
     }

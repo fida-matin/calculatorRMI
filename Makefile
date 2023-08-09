@@ -25,6 +25,14 @@ setup: 			CalculatorServer.java
 	sleep 2
 	java CalculatorServer
 
+server: 		CalculatorServer.java
+	java CalculatorServer
+
+test: 			CalculatorClient.java UnitTesting.java
+	java -ea UnitTesting
+	sleep 2
+	java -ea CalculatorClient
+
 integration: 	CalculatorClient.java
 	java -ea CalculatorClient
 
@@ -44,7 +52,10 @@ instructions:
 	@echo "Make Commands: "
 	@echo "'setup' - starts the registry & server, only needs to be done once on seperate terminal"
 	@echo " to close rmi use 'ps' to get process id and use 'kill -9 PID' to remove process"
+	@echo "'server' - starts only the server, to be used if rmi already running"
+	@echo "'test' - run all integration and unit tests"
 	@echo "'integration' - executes client for integration testing "
+	@echo "if running single terminal enter 1 as stdin, otherwise enter "
 	@echo "'unit' - executes unit testing for CalculatorImplementation"
 	@echo "'clean' - Removes all class files"
 	@echo " "
