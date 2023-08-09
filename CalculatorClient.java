@@ -18,12 +18,12 @@ public class CalculatorClient {
             /**
              * INTEGRATION TESTING
              */
-
+            System.out.println("Creating 4 Clients");
             Calculator client1 = (Calculator) Naming.lookup(String.format("//%s/Calculator", host_Address));
             Calculator client2 = (Calculator) Naming.lookup(String.format("//%s/Calculator", host_Address));
             Calculator client3 = (Calculator) Naming.lookup(String.format("//%s/Calculator", host_Address));
             Calculator client4 = (Calculator) Naming.lookup(String.format("//%s/Calculator", host_Address));
-
+            System.out.println("Creating 4 Clients");
             client1.pushValue(1);
             client2.pushValue(2);
             client3.pushValue(3);
